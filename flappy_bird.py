@@ -51,7 +51,6 @@ class Flappy_Bird:
                 self._update_pipe()
                 self._bird_gravity()
                 self._check_pipe_bird_collisions()
-                self._check_difficult()
             self._update_screen()  
             self.clock.tick(60)
 
@@ -99,10 +98,9 @@ class Flappy_Bird:
     def _check_pipe_pos(self):
         """Check pipe postion and does the certain conditon"""
         for pipe in self.pipes.sprites():
-            if pipe.pipe_bottom_rect.x == self.settings.screen_width/4 and pipe.pipe_top_rect.x == self.settings.screen_width/4 :
-                self._create_pipe(self.settings.screen_width + (4 * pipe.pipe_bottom_rect.width))
-            elif pipe.pipe_bottom_rect.x < 0 and pipe.pipe_top_rect.x < 0:
+            if pipe.pipe_bottom_rect.x < 0 and pipe.pipe_top_rect.x < 0:
                 self.pipes.remove(pipe)
+                self._create_pipe(self.settings.screen_width + 2 * pipe.pipe_bottom_rect.width)
 
     def _create_pipe(self, current_x):
         """creates new Instance of pipe"""
@@ -118,7 +116,7 @@ class Flappy_Bird:
         pipe = Pipe(self)
         pipe_width = pipe.pipe_bottom_rect.width
         current_x = self.settings.screen_width/4
-        while current_x < self.settings.screen_width:
+        while current_x < (self.settings.screen_width + 4 * pipe_width):
             self._create_pipe(current_x)
             current_x += 4 * pipe_width
         current_x = pipe_width
@@ -141,20 +139,6 @@ class Flappy_Bird:
         """Moves pipes to the left"""
         self._check_pipe_pos()
         self.pipes.update()
-
-    def _check_difficult(self):
-        if self.stats.score > 100:
-            self.settings.pipe_moving_speed *= 4
-        elif self.stats.score > 50:
-            self.settings.pipe_moving_speed *= 3.5
-        elif self.stats.score > 50:
-            self.settings.pipe_moving_speed *= 3
-        elif self.stats.score > 30:
-            self.settings.pipe_moving_speed *= 2.5
-        elif self.stats.score > 20:
-            self.settings.pipe_moving_speed *= 2
-        elif self.stats.score > 10:
-            self.settings.pipe_moving_speed *= 1.5
 
     def _update_screen(self):
         """Updates the Screen of game"""

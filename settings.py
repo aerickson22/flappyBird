@@ -11,4 +11,4 @@ class Settings:
 
         #Pipe Settings
         self.gap_size = 150
-        self.pipe_moving_speed = 1.5
+        self.pipe_moving_speed = 1.75

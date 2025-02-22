@@ -14,7 +14,7 @@ class Bird:
         self.settings = ai_game.settings
 
         #Initalizing bird images and rects
-        self.image = py.image.load("images/bluebird-midflap.bmp")
+        self.image = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\images\\bluebird-midflap.bmp")
         self.rect = self.image.get_rect()
 
         self.x = self.rect.x

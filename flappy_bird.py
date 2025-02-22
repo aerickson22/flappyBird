@@ -21,7 +21,7 @@ class Flappy_Bird:
         pygame.display.set_caption("Flappy Bird")
 
         #Creates Background Image
-        self.bg_image = pygame.image.load("images/bg.bmp")
+        self.bg_image = pygame.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\images\\bg.bmp")
         self.bg_image_rect = self.bg_image.get_rect()
 
         #Create pipe Instances

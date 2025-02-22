@@ -17,7 +17,7 @@ class Pipe(Sprite):
         self.settings = ai_game.settings
 
         #Get Top Pipe settings
-        self.image_top = py.image.load("images/pipe-green-flip.bmp")
+        self.image_top = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\images\\pipe-green-flip.bmp")
         self.pipe_top_width = self.image_top.get_rect().width
         self.pipe_top_height = self.screen_height
         self.image_top = py.transform.scale(self.image_top, (self.pipe_top_width, self.pipe_top_height))
@@ -25,7 +25,7 @@ class Pipe(Sprite):
 
 
         #Get Bottom Pipe settings
-        self.image_bottom = py.image.load("images/pipe-green.bmp")
+        self.image_bottom = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\images\\pipe-green.bmp")
         self.pipe_bottom_width = self.image_bottom.get_rect().width
         self.pipe_bottom_height = self.screen_height
         self.image_bottom = py.transform.scale(self.image_bottom, (self.pipe_bottom_width, self.pipe_bottom_height))

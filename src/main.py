@@ -52,7 +52,6 @@ class Flappy_Bird:
                 self._bird_gravity()
                 self._check_pipe_bird_collisions()
             self._update_screen() 
-            pygame.display.update() 
             self.clock.tick(60)
 
     def _event_tracker(self):

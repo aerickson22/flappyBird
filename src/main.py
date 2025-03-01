@@ -21,7 +21,7 @@ class Flappy_Bird:
         pygame.display.set_caption("Flappy Bird")
 
         #Creates Background Image
-        self.bg_image = pygame.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\images\\bg.bmp")
+        self.bg_image = pygame.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\assets\\images\\bg.bmp")
         self.bg_image_rect = self.bg_image.get_rect()
 
         #Create pipe Instances
@@ -51,7 +51,8 @@ class Flappy_Bird:
                 self._update_pipe()
                 self._bird_gravity()
                 self._check_pipe_bird_collisions()
-            self._update_screen()  
+            self._update_screen() 
+            pygame.display.update() 
             self.clock.tick(60)
 
     def _event_tracker(self):

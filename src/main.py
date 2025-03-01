@@ -1,6 +1,7 @@
 import sys
+import asyncio
 
-import pygame
+import pygame 
 from pygame.sprite import Group
 from time import sleep
   
@@ -17,11 +18,11 @@ class Flappy_Bird:
         """Intialize key elements in the game"""
         pygame.init()
         self.clock = pygame.time.Clock() 
-        self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)     
+        self.screen = pygame.display.set_mode((1280, 720))     
         pygame.display.set_caption("Flappy Bird")
 
-        #Creates Background Image
-        self.bg_image = pygame.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\assets\\images\\bg.bmp")
+        # Load the image
+        self.bg_image = pygame.image.load("assets/images/bg.bmp")
         self.bg_image_rect = self.bg_image.get_rect()
 
         #Create pipe Instances
@@ -43,7 +44,7 @@ class Flappy_Bird:
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
 
-    def run_game(self):
+    async def run_game(self):
         """Runs the main logic of game"""
         while True:
             self._event_tracker()
@@ -53,6 +54,7 @@ class Flappy_Bird:
                 self._check_pipe_bird_collisions()
             self._update_screen() 
             self.clock.tick(60)
+            await asyncio.sleep(0)
 
     def _event_tracker(self):
         """Keeps Track of key events"""
@@ -152,7 +154,11 @@ class Flappy_Bird:
 
         pygame.display.flip()
 
-if __name__ == '__main__':
+async def main():
     # Make a game instance, and run the game
-    ai = Flappy_Bird()
-    ai.run_game()
+    """Async entry point for Pygbag"""
+    game = Flappy_Bird()
+    await game.run_game()
+
+if __name__ == '__main__':
+    asyncio.run(main())

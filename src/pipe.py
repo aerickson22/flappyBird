@@ -1,4 +1,4 @@
-import pygame as py
+import pygame
 from pygame.sprite import Sprite
 from random import randint
 
@@ -17,18 +17,18 @@ class Pipe(Sprite):
         self.settings = ai_game.settings
 
         #Get Top Pipe settings
-        self.image_top = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\assets\\images\\pipe-green-flip.bmp")
+        self.image_top = pygame.image.load("assets/images/pipe-green-flip.bmp")
         self.pipe_top_width = self.image_top.get_rect().width
         self.pipe_top_height = self.screen_height
-        self.image_top = py.transform.scale(self.image_top, (self.pipe_top_width, self.pipe_top_height))
+        self.image_top = pygame.transform.scale(self.image_top, (self.pipe_top_width, self.pipe_top_height))
         self.pipe_top_rect = self.image_top.get_rect()
 
 
         #Get Bottom Pipe settings
-        self.image_bottom = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\assets\\images\\pipe-green.bmp")
+        self.image_bottom = pygame.image.load("assets/images/pipe-green.bmp")
         self.pipe_bottom_width = self.image_bottom.get_rect().width
         self.pipe_bottom_height = self.screen_height
-        self.image_bottom = py.transform.scale(self.image_bottom, (self.pipe_bottom_width, self.pipe_bottom_height))
+        self.image_bottom = pygame.transform.scale(self.image_bottom, (self.pipe_bottom_width, self.pipe_bottom_height))
         self.pipe_bottom_rect = self.image_bottom.get_rect()
 
         #create randomn height for pipes

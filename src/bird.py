@@ -1,4 +1,4 @@
-import pygame as py
+import pygame
 
 class Bird:
     """Class represents a bird"""
@@ -14,7 +14,7 @@ class Bird:
         self.settings = ai_game.settings
 
         #Initalizing bird images and rects
-        self.image = py.image.load("C:\\Users\\aeric\\Coding\\Python\\project\\flappyBird\\assets\\images\\bluebird-midflap.bmp")
+        self.image = pygame.image.load("assets/images/bluebird-midflap.bmp")
         self.rect = self.image.get_rect()
 
         self.x = self.rect.x
